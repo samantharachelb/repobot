@@ -1,3 +1,9 @@
+/*
+    Filename:   index.js
+    Author:     Samantha Emily-Rachel Belnavis
+    Date:       June 16, 2018
+ */
+
 const firebase = require('firebase');
 const get = require('get-value');
 
@@ -7,6 +13,7 @@ const firebaseConfig = {
     databaseURL: "https://cloud-d712b.firebaseio.com/",
     storageBucket: "cloud-d712b.appspot.com"
 };
+
 firebase.initializeApp(firebaseConfig);
 
 // convert filesize to something human readable
