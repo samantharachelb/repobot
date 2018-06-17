@@ -9,8 +9,6 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-var database = firebase.database();
-
 // convert filesize to something human readable
 function humanReadable(filesizeBytes) {
   var i = -1;
@@ -32,7 +30,7 @@ module.exports = app => {
 
   // To get your app running against GitHub, see:
   // https://probot.github.io/docs/development/
-}
+};
 
 
 module.exports = release_robot => {
@@ -62,7 +60,7 @@ module.exports = release_robot => {
         release_robot.log(tarball);
 
         const zipball = "" + get(context.payload, 'release.tarball_url');
-        release_robot.log(zipball)
+        release_robot.log(zipball);
 
         // save release data to db
         firebase.database().ref('releases/' + releaseId).set({
