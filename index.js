@@ -100,8 +100,11 @@ module.exports = release_robot => {
         });
 
         // save the latest release id to db
-        firebase.database().ref('releases/' + repository).set({
-            "latest_release": releaseId
+        firebase.database().ref('releases/' + repository).update({
+            "latest_release": {
+                "release_id": releaseId,
+                "version": version
+            }
         });
 
 
