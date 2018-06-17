@@ -1,0 +1,6 @@
+# Comment to be posted on the first time issues
+newIssueWelcomeComment: >
+  Thanks for opening this issue! Be sure to follow the issue template!
+
+newPRWelcomeComment: >
+  Thanks for opening this pull request! Please check out our contributing guidelines.

@@ -92,11 +92,18 @@ module.exports = release_robot => {
             "asset": {
                 "asset_name": assetName,
                 "asset_size": assetSize,
-                "asset_url": assetUrl
+                "asset_url": assetUrl,
+                "asset_cdn_url": "https://cdn.samantharachelb/releases/" + repository + "/" + assetName
             },
             "release_tarball": tarball,
             "release_zipball": zipball
         });
+
+        // save the latest release id to db
+        firebase.database().ref('releases/' + repository).set({
+            "latest_release": releaseId
+        });
+
 
         // send a message to slack
         slack.send(author + " released version " + version + " of " + repository + ". You can download it here: " +
