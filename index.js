@@ -6,6 +6,8 @@
 
 const firebase = require('firebase')
 const get = require('get-value')
+const moment = require('moment-timezone')
+const { BitlyClient } = require('bitly')
 const SlackWebhook = require('slack-webhook')
 
 const firebaseConfig = {
@@ -14,6 +16,8 @@ const firebaseConfig = {
   databaseURL: 'https://cloud-d712b.firebaseio.com/',
   storageBucket: 'cloud-d712b.appspot.com'
 }
+
+const bitly = new BitlyClient(process.env.BITLY_KEY, {})
 
 firebase.initializeApp(firebaseConfig)
 
@@ -98,5 +102,53 @@ module.exports = releaseRobot => {
     // send a message to slack
     slack.send(author + ' released version ' + version + ' of ' + repository + '. You can download it here: ' +
         assetUrl)
+  })
+}
+
+module.exports = statusRobot => {
+  statusRobot.on(['status'], async context => {
+    statusRobot.log(context)
+
+    const status = get(context.payload, 'state')
+    statusRobot.log(status)
+
+    const repo = get(context.payload, 'name')
+    statusRobot.log(repo)
+
+    var time = get(context.payload, 'updated_at')
+    statusRobot.log(time)
+
+    // convert time from UTC-0 to Local time (Toronto)
+    const timeFormat = 'HH:mm:ss ZZ'
+    const timeDateFormat = 'MMMM, DD, YYYY'
+    time = moment.tz(time, 'America/Toronto')
+
+    const timeDate = time.format(timeDateFormat)
+    time = time.format(timeFormat)
+
+    statusRobot.log(time)
+
+    // Shorten Build Info Link
+    const buildLink = get(context.payload, 'target_url')
+    statusRobot.log(buildLink)
+
+    var shortLink = await bitly.shorten(buildLink)
+    shortLink = get(shortLink, 'url')
+    statusRobot.log(shortLink)
+
+    // send message to slack
+    if (status === 'failure') {
+      slack.send('The CI Build failed on "' + repo + '" on ' + timeDate + ' at ' + time +
+      '. More details available at: ' + shortLink)
+    } else if (status === 'pending') {
+      slack.send('A CI Build was started on "' + repo + '" on ' + timeDate + ' at ' + time +
+        '. More details available at: ' + shortLink)
+    } else if (status === 'error') {
+      slack.send('The CI Build on "' + repo + '" on ' + timeDate + ' at ' + time +
+        ' had an error. More details available at: ' + shortLink)
+    } else {
+      slack.send('The CI Build passed on "' + repo + '" on ' + timeDate + ' at ' + time +
+        '. More details available at: ' + shortLink)
+    }
   })
 }

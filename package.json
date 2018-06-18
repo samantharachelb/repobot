@@ -1,7 +1,7 @@
 {
-  "name": "release-robot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "RepoBot",
+  "version": "1.2.0",
+  "description": "Repo Task Automation",
   "author": "Samantha Emily-Rachel Belnavis <me@samantharachelb.ca> (https://samantharachelb.ca/release-robot)",
   "license": "ISC",
   "repository": "https://github.com/samantharachelb/release-robot.git",
@@ -20,8 +20,12 @@
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
+    "bitly": "^6.0.6",
+    "expect": "^23.1.0",
     "firebase": "^5.0.4",
     "get-value": "^3.0.1",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.20",
     "probot": "^6.0.0",
     "slack-webhook": "^1.0.0"
   },
