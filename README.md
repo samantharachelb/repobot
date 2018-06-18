@@ -1,5 +1,5 @@
 # RepoBot
-[![Travis](https://img.shields.io/travis/samantharachelb/repobot.svg?style=flat-square)](https://travis-ci.com/samantharachelb/repobot)
+[![Travis](https://img.shields.io/travis/samantharachelb/repobot.svg?style=flat-square)](https://travis-ci.com/samantharachelb/repobot) [![Greenkeeper badge](https://badges.greenkeeper.io/samantharachelb/release-robot.svg)](https://greenkeeper.io/)
 
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that automates
