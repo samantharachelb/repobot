@@ -1,6 +1,9 @@
-# release-robot
+# RepoBot
+[![Travis](https://img.shields.io/travis/samantharachelb/repobot.svg?style=flat-square)](https://travis-ci.com/samantharachelb/repobot)
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that 
+
+> A GitHub App built with [Probot](https://github.com/probot/probot) that automates
+> release notifications
 
 ## Setup
 
@@ -14,7 +17,7 @@ npm start
 
 ## Contributing
 
-If you have suggestions for how release-robot could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+If you have suggestions for how RepoBot could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
 
 For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
