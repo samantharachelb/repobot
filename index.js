@@ -10,7 +10,7 @@ const moment = require('moment-timezone')
 const { BitlyClient } = require('bitly')
 const SlackWebhook = require('slack-webhook')
 
-const debugMode = false; // set to true to get console output
+const debugMode = false // set to true to get console output
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_KEY,
@@ -154,10 +154,10 @@ module.exports = deployRobot => {
   deployRobot.on(['deployment'], async context => {
     deployRobot.log(context.payload)
 
-    const deployPlatform = get(context.payload, "deployment.description")
-    const deployEnvironment = get(context.payload, "deployment.environment")
+    const deployPlatform = get(context.payload, 'deployment.description')
+    const deployEnvironment = get(context.payload, 'deployment.environment')
     const deployWeblink = get(await bitly.shorten(get(context.payload, 'deployment.payload.web_url')), 'url')
-    const deployRepo = get(context.payload, "repository.full_name")
+    const deployRepo = get(context.payload, 'repository.full_name')
 
     if (debugMode === true) {
       deployRobot.log(deployPlatform)
@@ -166,7 +166,7 @@ module.exports = deployRobot => {
     }
 
     slack.send('A deployment event was triggered on the repository: "' + deployRepo +
-    '"\n\nProvider: ' + deployPlatform + '\nEnvironment: ' + deployEnvironment + '\nLink: '
-    + deployWeblink)
+    '"\n\nProvider: ' + deployPlatform + '\nEnvironment: ' + deployEnvironment + '\nLink: ' +
+    deployWeblink)
   })
 }
