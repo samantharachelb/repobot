@@ -10,6 +10,8 @@ const moment = require('moment-timezone')
 const { BitlyClient } = require('bitly')
 const SlackWebhook = require('slack-webhook')
 
+const debugMode = false; // set to true to get console output
+
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_KEY,
   authDomain: 'cloud-d712b.firebaseapp.com',
@@ -51,31 +53,14 @@ module.exports = releaseRobot => {
     releaseRobot.log(context)
 
     const repository = get(context.payload, 'repository.name')
-    releaseRobot.log(repository)
-
     const releaseId = get(context, 'id')
-    releaseRobot.log(releaseId)
-
     const author = get(context.payload, 'release.author.login')
-    releaseRobot.log(author)
-
     const version = get(context.payload, 'release.tag_name')
-    releaseRobot.log(version)
-
     const assetName = get(context.payload, 'release.assets.0.name')
-    releaseRobot.log(assetName)
-
     const assetSize = humanReadable(get(context.payload, 'release.assets.0.size'))
-    releaseRobot.log(assetSize)
-
     const assetUrl = get(context.payload, 'release.assets.0.browser_download_url')
-    releaseRobot.log(assetUrl)
-
     const tarball = get(context.payload, 'release.tarball_url')
-    releaseRobot.log(tarball)
-
     const zipball = get(context.payload, 'release.tarball_url')
-    releaseRobot.log(zipball)
 
     // save release data to db
     firebase.database().ref('releases/' + repository + '/' + releaseId).set({
@@ -99,56 +84,89 @@ module.exports = releaseRobot => {
       }
     })
 
+    if (debugMode === true) {
+      releaseRobot.log(repository)
+      releaseRobot.log(releaseId)
+      releaseRobot.log(author)
+      releaseRobot.log(version)
+      releaseRobot.log(assetName)
+      releaseRobot.log(assetSize)
+      releaseRobot.log(assetUrl)
+      releaseRobot.log(tarball)
+      releaseRobot.log(zipball)
+    }
     // send a message to slack
-    slack.send(author + ' released version ' + version + ' of ' + repository + '. You can download it here: ' +
-        assetUrl)
+    slack.send(author + ' released version ' + version + ' of ' + repository +
+      '.\nYou can download it here: ' + assetUrl)
   })
 }
 
+// this module sends a status message to slack
 module.exports = statusRobot => {
   statusRobot.on(['status'], async context => {
     statusRobot.log(context)
 
     const status = get(context.payload, 'state')
-    statusRobot.log(status)
-
     const repo = get(context.payload, 'name')
-    statusRobot.log(repo)
-
     var time = get(context.payload, 'updated_at')
-    statusRobot.log(time)
 
     // convert time from UTC-0 to Local time (Toronto)
     const timeFormat = 'HH:mm:ss ZZ'
     const timeDateFormat = 'MMMM, DD, YYYY'
     time = moment.tz(time, 'America/Toronto')
-
     const timeDate = time.format(timeDateFormat)
     time = time.format(timeFormat)
 
-    statusRobot.log(time)
-
     // Shorten Build Info Link
     const buildLink = get(context.payload, 'target_url')
-    statusRobot.log(buildLink)
-
     var shortLink = await bitly.shorten(buildLink)
     shortLink = get(shortLink, 'url')
-    statusRobot.log(shortLink)
 
+    if (debugMode === true) {
+      statusRobot.log(status)
+      statusRobot.log(repo)
+      statusRobot.log(time)
+      statusRobot.log(shortLink)
+    }
     // send message to slack
     if (status === 'failure') {
-      slack.send('The CI Build failed on "' + repo + '" on ' + timeDate + ' at ' + time +
-      '. More details available at: ' + shortLink)
+      slack.send('The CI Build failed on "' + repo + '"' +
+        '\n\nLast Updated: ' + timeDate + ' at ' + time +
+        '.\nMore details available at: ' + shortLink)
     } else if (status === 'pending') {
-      slack.send('A CI Build was started on "' + repo + '" on ' + timeDate + ' at ' + time +
-        '. More details available at: ' + shortLink)
+      slack.send('A CI build started on "' + repo + '"' +
+        '\n\nLast Updated: ' + timeDate + ' at ' + time +
+        '.\nMore details available at: ' + shortLink)
     } else if (status === 'error') {
-      slack.send('The CI Build on "' + repo + '" on ' + timeDate + ' at ' + time +
-        ' had an error. More details available at: ' + shortLink)
+      slack.send('The CI Build errored on "' + repo + '"' +
+        '\n\nLast Updated: ' + timeDate + ' at ' + time +
+        '.\nMore details available at: ' + shortLink)
     } else {
-      slack.send('The CI Build passed on "' + repo + '" on ' + timeDate + ' at ' + time +
-        '. More details available at: ' + shortLink)
+      slack.send('The CI Build passed on "' + repo + '"' +
+        '\n\nLast Updated: ' + timeDate + ' at ' + time +
+        '.\nMore details available at: ' + shortLink)
     }
+  })
+}
+
+// this module sends a message to slack about deployment
+module.exports = deployRobot => {
+  deployRobot.on(['deployment'], async context => {
+    deployRobot.log(context.payload)
+
+    const deployPlatform = get(context.payload, "deployment.description")
+    const deployEnvironment = get(context.payload, "deployment.environment")
+    const deployWeblink = get(await bitly.shorten(get(context.payload, 'deployment.payload.web_url')), 'url')
+    const deployRepo = get(context.payload, "repository.full_name")
+
+    if (debugMode === true) {
+      deployRobot.log(deployPlatform)
+      deployRobot.log(deployEnvironment)
+      deployRobot.log(deployWeblink)
+    }
+
+    slack.send('A deployment event was triggered on the repository: "' + deployRepo +
+    '"\n\nProvider: ' + deployPlatform + '\nEnvironment: ' + deployEnvironment + '\nLink: '
+    + deployWeblink)
   })
 }
