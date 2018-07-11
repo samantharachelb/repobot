@@ -20,20 +20,20 @@
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
-    "bitly": "^6.0.6",
+    "bitly": "^6.0.7",
     "expect": "^23.1.0",
-    "firebase": "^5.0.4",
+    "firebase": "^5.2.0",
     "get-value": "^3.0.1",
     "moment": "^2.22.2",
-    "moment-timezone": "^0.5.20",
-    "probot": "^7.0.0",
+    "moment-timezone": "^0.5.21",
+    "probot": "^7.0.1",
     "probot-config": "^0.1.0",
     "slack-webhook": "^1.0.0"
   },
   "devDependencies": {
     "jest": "^22.4.3",
-    "nodemon": "^1.17.2",
-    "smee-client": "^1.0.1",
+    "nodemon": "^1.18.1",
+    "smee-client": "^1.0.2",
     "standard": "^10.0.3"
   },
   "engines": {
