@@ -10,7 +10,7 @@ const moment = require('moment-timezone')
 const { BitlyClient } = require('bitly')
 const SlackWebhook = require('slack-webhook')
 
-const debugMode = false // set to true to get console output
+const debugMode = true // set to true to get console output
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_KEY,
@@ -168,5 +168,37 @@ module.exports = deployRobot => {
     slack.send('A deployment event was triggered on the repository: "' + deployRepo +
     '"\n\nProvider: ' + deployPlatform + '\nEnvironment: ' + deployEnvironment + '\nLink: ' +
     deployWeblink)
+  })
+}
+
+
+// this module sends messages to slack about pull requests
+module.exports = prRobot => {
+  prRobot.on(['pull_request'], async context => {
+    prRobot.log(context.payload) // get full payload
+
+    const pr_state = get(context.payload, 'action')
+    const pr_number = get(context.payload, 'number')
+    const pr_url = get(await bitly.shorten(get(context.payload, 'pull_request.html_url')), 'url')
+    const pr_title = get(context.payload, 'pull_request.title')
+    if (debugMode === true) {
+      prRobot.log(pr_state)
+      prRobot.log(pr_number)
+      prRobot.log(pr_url)
+      prRobot.log(pr_title)
+    }
+
+    // if pull request action is synchronize
+    if (pr_state === 'synchronize') {
+      slack.send("Pull Request #" + pr_number + " " + pr_title + " was updated. " +
+        "\nCheck out the updates here:" + pr_url)
+    } else if (pr_state === 'opened') {
+      slack.send("Pull Request #" + pr_number + " " + pr_title + " was opened. " +
+        "\nView the request here:" + pr_url)
+    } else if (pr_state === 'closed') {
+      slack.send("Pull Request #" + pr_number + " " + pr_title + " was closed. " +
+        "\nLink to pull request:" + pr_url)
+    }
+
   })
 }
