@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37079df1-42b4-41d9-b5d7-0cc19e2be77a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/index.test.js" afterDir="false" />
-    </list>
+    <list default="true" id="37079df1-42b4-41d9-b5d7-0cc19e2be77a" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +12,7 @@
     <session id="-245246790">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="2" />
@@ -26,15 +21,19 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="37" />
-          <entry key="json" value="7" />
+          <entry key="json" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="7" />
+          <entry key="JSON" value="10" />
           <entry key="JavaScript" value="37" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.file.extensions.open" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.file.types.open" />
+      <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
@@ -52,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="494">
-              <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -312,7 +311,7 @@
       <workItem from="1531337796340" duration="319000" />
       <workItem from="1532056181134" duration="1516000" />
       <workItem from="1532907789913" duration="124000" />
-      <workItem from="1536926950211" duration="799000" />
+      <workItem from="1536926950211" duration="1915000" />
     </task>
     <servers />
   </component>
@@ -322,7 +321,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29676000" />
+    <option name="totallyTimeSpent" value="30792000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -335,9 +334,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1153" height="1096" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49949136" visible="true" weight="0.27031803" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49949136" visible="true" weight="0.27031803" />
       <window_info id="Structure" order="1" sideWeight="0.50050867" side_tool="true" weight="0.27031803" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -348,7 +346,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32960325" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3299595" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3299595" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -526,7 +524,7 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
-          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
         </state>
       </provider>
     </entry>
