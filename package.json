@@ -27,7 +27,7 @@
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
     "probot": "^7.1.2",
-    "probot-config": "^0.2.0",
+    "probot-config": "^1.0.0",
     "slack-webhook": "^1.0.0"
   },
   "devDependencies": {
