@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "bitly": "^6.0.7",
-    "expect": "^23.1.0",
+    "expect": "^24.1.0",
     "firebase": "^5.5.1",
     "get-value": "^3.0.1",
     "moment": "^2.22.2",
