@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  build_app:
     docker:
       - image: circleci/node:8.3
     working_directory: ~/repo
@@ -26,10 +26,10 @@ workflows:
   version: 2.1
   build_deploy:
     jobs:
-      - build
+      - build_app
       - deploy:
           requires:
-            - build
+            - build_app
           filters:
             branches:
               only: master
