@@ -36,7 +36,7 @@ function humanReadable (filesizeBytes) {
 }
 
 // setup slack client
-const slack = new SlackWebhook('https://hooks.slack.com/services/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', {
+const slack = new SlackWebhook(process.env.SLACK_WEBHOOK, {
   defaults: {
     username: 'repobot',
     channel: '#general',
