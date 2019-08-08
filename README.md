@@ -1,4 +1,5 @@
 # RepoBot
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/effa9d0d98484564bf0783ee8b3e60db)](https://app.codacy.com/app/samantharachelb/repobot?utm_source=github.com&utm_medium=referral&utm_content=samantharachelb/repobot&utm_campaign=Badge_Grade_Dashboard)
 [![Travis](https://img.shields.io/travis/samantharachelb/repobot.svg?style=flat-square&logo=travis)](https://travis-ci.com/samantharachelb/repobot)
 [![CircleCI](https://img.shields.io/circleci/project/github/samantharachelb/repobot.svg?style=flat-square&logo=circleci)](https://circleci.com/gh/samantharachelb/repobot)
 
