@@ -1,7 +1,6 @@
 # RepoBot
-[![Travis](https://img.shields.io/travis/samantharachelb/repobot.svg?style=flat-square&logo=travis)](https://travis-ci.com/samantharachelb/repobot)
 [![CircleCI](https://img.shields.io/circleci/project/github/samantharachelb/repobot.svg?style=flat-square&logo=circleci)](https://circleci.com/gh/samantharachelb/repobot)
-
+![Codacy grade](https://img.shields.io/codacy/grade/a3f1c615e6264f51b6bde4e51cb483cb?style=flat-square)
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that automates
 > release notifications

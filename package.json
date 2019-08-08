@@ -3,10 +3,10 @@
   "version": "1.2.0",
   "description": "Repo Task Automation",
   "author": "Samantha Emily-Rachel Belnavis <me@samantharachelb.ca> (https://samantharachelb.ca/release-robot)",
-  "license": "ISC",
-  "repository": "https://github.com/samantharachelb/release-robot.git",
-  "homepage": "https://github.com/samantharachelb/release-robot",
-  "bugs": "https://github.com/samantharachelb/release-robot/issues",
+  "license": "MIT",
+  "repository": "https://github.com/samantharachelb/repobot.git",
+  "homepage": "https://github.com/samantharachelb/repobot",
+  "bugs": "https://github.com/samantharachelb/repobot/issues",
   "keywords": [
     "probot",
     "github",
@@ -22,20 +22,19 @@
   "dependencies": {
     "bitly": "^6.0.7",
     "expect": "^24.5.0",
-    "firebase": "^5.5.1",
+    "firebase": "^6.3.4",
     "get-value": "^3.0.1",
-    "greenkeeper/probot-8.0.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.23",
     "probot": "^9.0.0",
-    "probot-config": "^0.2.0",
+    "probot-config": "^1.1.0",
     "slack-webhook": "^1.0.0"
   },
   "devDependencies": {
     "jest": "^24.5.0",
     "nodemon": "^1.18.10",
     "smee-client": "^1.0.2",
-    "standard": "^12.0.0"
+    "standard": "^13.1.0"
   },
   "engines": {
     "node": ">= 8.3.0"
