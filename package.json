@@ -24,9 +24,10 @@
     "expect": "^24.5.0",
     "firebase": "^5.5.1",
     "get-value": "^3.0.1",
+    "greenkeeper/probot-8.0.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.23",
-    "probot": "^7.5.1",
+    "probot": "^9.0.0",
     "probot-config": "^0.2.0",
     "slack-webhook": "^1.0.0"
   },
