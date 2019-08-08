@@ -21,18 +21,19 @@
   },
   "dependencies": {
     "bitly": "^6.0.7",
-    "expect": "^23.1.0",
+    "expect": "^24.5.0",
     "firebase": "^5.5.1",
     "get-value": "^3.0.1",
-    "moment": "^2.22.2",
-    "moment-timezone": "^0.5.21",
+    "greenkeeper/probot-8.0.0",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.23",
     "probot": "^9.0.0",
     "probot-config": "^0.2.0",
     "slack-webhook": "^1.0.0"
   },
   "devDependencies": {
-    "jest": "^22.4.3",
-    "nodemon": "^1.18.1",
+    "jest": "^24.5.0",
+    "nodemon": "^1.18.10",
     "smee-client": "^1.0.2",
     "standard": "^12.0.0"
   },
