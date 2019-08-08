@@ -1,6 +1,7 @@
 # RepoBot
 [![CircleCI](https://img.shields.io/circleci/project/github/samantharachelb/repobot.svg?style=flat-square&logo=circleci)](https://circleci.com/gh/samantharachelb/repobot)
-![Codacy grade](https://img.shields.io/codacy/grade/a3f1c615e6264f51b6bde4e51cb483cb?style=flat-square)
+[![Codacy grade](https://img.shields.io/codacy/grade/a3f1c615e6264f51b6bde4e51cb483cb?style=flat-square&logo=codacy)](https://www.codacy.com/app/samantharachelb/repobot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=samantharachelb/repobot&amp;utm_campaign=Badge_Grade)
+
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that automates
 > release notifications
@@ -23,4 +24,4 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 
-[ISC](LICENSE) © 2018 Samantha Emily-Rachel Belnavis <me@samantharachelb.ca> (https://samantharachelb.ca/release-robot)
+[MIT](LICENSE) © 2018 - 2019 Samantha Emily-Rachel Belnavis
