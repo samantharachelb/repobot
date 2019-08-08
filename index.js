@@ -64,23 +64,23 @@ module.exports = releaseRobot => {
 
     // save release data to db
     firebase.database().ref('releases/' + repository + '/' + releaseId).set({
-      'release_author': author,
-      'release_version': version,
-      'asset': {
-        'asset_name': assetName,
-        'asset_size': assetSize,
-        'asset_url': assetUrl,
-        'asset_cdn_url': 'https://cdn.samantharachelb/releases/' + repository + '/' + assetName
+      release_author: author,
+      release_version: version,
+      asset: {
+        asset_name: assetName,
+        asset_size: assetSize,
+        asset_url: assetUrl,
+        asset_cdn_url: 'https://cdn.samantharachelb/releases/' + repository + '/' + assetName
       },
-      'release_tarball': tarball,
-      'release_zipball': zipball
+      release_tarball: tarball,
+      release_zipball: zipball
     })
 
     // save the latest release id to db
     firebase.database().ref('releases/' + repository).update({
-      'latest_release': {
-        'release_id': releaseId,
-        'version': version
+      latest_release: {
+        release_id: releaseId,
+        version: version
       }
     })
 
