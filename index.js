@@ -9,6 +9,7 @@ const get = require('get-value')
 const moment = require('moment-timezone')
 const { BitlyClient } = require('bitly')
 const SlackWebhook = require('slack-webhook')
+const http = require('http')
 
 const debugMode = true // set to true to get console output
 
@@ -200,3 +201,7 @@ module.exports = prRobot => {
     }
   })
 }
+
+setInterval(function () {
+  http.get('https://repobot-17619.herokuapp.com/')
+}, 300000) // every 5 minutes
